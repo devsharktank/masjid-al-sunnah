@@ -1,0 +1,166 @@
+<style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    td, th {
+      border-bottom: 1px solid #dddddd;
+      text-align: left;
+     padding: 2px;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+
+    #clockdiv{
+    font-family: sans-serif;
+    color: #fff;
+    display: inline-block;
+    font-weight: 100;
+    text-align: center;
+    font-size: 30px;
+    margin:10px;
+    padding:5px;
+    
+    }
+
+    #clockdiv > div{
+    padding: 5px;
+    border-radius: 3px;
+    background: #6a6e77;
+    display: inline-block;
+    }
+
+    #clockdiv div > span{
+    padding: 15px;
+    border-radius: 40px;
+    background: #33363b;
+    display: inline-block;
+  font-size: 50px;
+
+    }
+
+    .smalltext{
+    padding-top: 5px;
+    font-size: 20px;
+    }
+    
+    
+    #countdowncontainer{
+    background-color:#9f2e4f;
+    }
+    #countdownheader{
+    padding-top:10px;
+            color:black;
+            font-size:28px;
+    }
+    #countdownfooter{
+    padding-bottom:10px;
+            color:black;
+            font-size:28px;
+    }
+    #englishTitle {
+        color:white;
+        font-size:30px;
+    }
+    #arabicTitle {
+        color:white;
+        font-size:30px;
+    }
+    </style>
+    
+    <ion-header>
+      <ion-navbar>
+        <ion-title>Home</ion-title>
+      </ion-navbar>
+    </ion-header>
+    <!--- <img src="../../assets/imgs/header-image.jpg"> </img>   -->
+    <ion-content padding>
+      <h2>Sunnah Salah Timer</h2>
+      <div id="countdowncontainer">   
+        <div id="countdownheader">Remaining Time for: <span id="englishTitle"> </span> </div>
+    <div id="clockdiv">
+      
+      <div>
+        <span class="hours" id="hours"></span>
+        <div class="smalltext">Hours</div>
+      </div>
+      <div>
+        <span class="minutes" id="minutes"></span>
+        <div class="smalltext">Minutes</div>
+      </div>
+      <div>
+        <span class="seconds" id="seconds"></span>
+        <div class="smalltext">Seconds</div>
+      </div>
+      
+     
+    </div>
+     <div id="countdownfooter"> الوقت المتبقي لصلاة  <span id="arabicTitle"> </span> </div>
+    
+    </div>
+
+
+    
+    <span id="test"></span>
+
+    
+    
+      <p id="demo"></p>
+      <p id="yearString"></p>
+      
+    
+    <div *ngFor="let item of data">
+        <span>
+          
+    <table>
+      <tr >
+        <th >Prayer</th>
+        <th >Athan</th>
+        <th >Iqamah</th>
+      </tr>
+      <tr>
+        <td>Fajr</td>
+        <td>{{item.fajr}}</td>
+        <td>{{item.fajr_iqamah_time}}</td>
+      </tr>
+      <tr>
+        <td>Sunrise</td>
+        <td>{{item.sunrise}}</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>Thuhr</td>
+        <td>{{item.thuhr}}</td>
+        <td>{{item.thuhr_iqamah_time}}</td>
+      </tr>
+      <tr>
+        <td>Asr</td>
+        <td>{{item.asr}}</td>
+        <td>{{item.asr_iqamah_time}}</td>
+      </tr>
+      <tr>
+        <td>Maghrib</td>
+        <td>{{item.maghrib}}</td>
+        <td>{{item.maghrib_iqamah_time}}</td>
+      </tr>
+      <tr>
+        <td>Isha</td>
+        <td>{{item.isha}}</td>
+        <td>{{item.isha_iqamah_time}}</td>
+      </tr>
+    </table>
+    
+        </span>
+    
+     </div> 
+    
+    
+     
+    
+    
+    </ion-content>
+    
