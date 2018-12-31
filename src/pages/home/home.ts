@@ -41,9 +41,9 @@ export class HomePage {
         this.data = data.results;
         //return this.year=data.results[0]['year'];
         var currentTimeMS = new Date();
-        console.log(currentTimeMS);
+        //console.log(currentTimeMS);
        // document.getElementById("test").innerHTML = currentTimeMS+"";
-        console.log("thuhr iqamah time ===> "+data.results[0]['thuhrIqamahMS']);
+        //console.log("thuhr iqamah time ===> "+data.results[0]['thuhrIqamahMS']);
        /*
         
         this.thuhrIqamahMS = data.results[0]['thuhrIqamahMS'];
@@ -60,7 +60,7 @@ export class HomePage {
           this.thuhrIqamahMS,
           this.asrIqamahMS,
           this.maghribIqamahMS,
-          this.ishaIqamahMS+3600*3*1000,
+          this.ishaIqamahMS,
           this.jumaaIqamahMS
            );   
 
@@ -127,7 +127,7 @@ export class HomePage {
 
       document.getElementById("englishTitle").innerHTML = nextPrayerEnglish;
       document.getElementById("arabicTitle").innerHTML = nextPrayerArabic;
-      console.log("countdown  ===> "+countDown); 
+      //console.log("countdown  ===> "+countDown); 
      // document.getElementById("cd").innerHTML = countDown+'';
           // Update the count down every 1 second
           let x = setInterval(function () {
@@ -137,7 +137,7 @@ export class HomePage {
       
             // Find the timeDifference between now and the count down date
             let timeDifference =  Math.floor(countDown - now);
-            console.log("timeDifference ===> "+timeDifference);
+            //console.log("timeDifference ===> "+timeDifference);
            // document.getElementById("timeDifference").innerHTML = timeDifference+'';
             //document.getElementById("cd").innerHTML = countDown+'';
             //document.getElementById("now").innerHTML = now+'';
@@ -148,7 +148,7 @@ export class HomePage {
             let seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
 
             
-            console.log(now, "now", "countDown", countDown, "timeDifference", timeDifference);
+           // console.log(now, "now", "countDown", countDown, "timeDifference", timeDifference);
             
             //console.log(HomePage.osama);
       
@@ -160,12 +160,17 @@ export class HomePage {
           // document.getElementById("test").innerHTML = 
            (now+ "now"+ "countDown"+ countDown+ "timeDifference"+ timeDifference);
       
-             //document.getElementById("hours-round").innerHTML =  hours + "h " + minutes + "m " + seconds + "s ";
-      
+            
             // If the count down is over, write some text 
-            if (timeDifference < 0) {
+            if (timeDifference <= 10) {
               clearInterval(x);
-              document.getElementById("demo").innerHTML = timeDifference+'';
+              console.log( timeDifference+'ERROR');
+             //reload page when timer reaches zero
+              setTimeout(function(){
+                window.location.reload(true);
+
+             }, 10);
+
             }
           }, 1000);
       
